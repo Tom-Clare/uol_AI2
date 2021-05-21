@@ -1,2 +1,4 @@
 C:\Users\apric\Documents\uni\Year 2\AI\assignment2\uol_AI2\Debug\PathFinderCpp.exe
 C:\Users\apric\Documents\uni\Year 2\AI\assignment2\uol_AI2\Debug\PathFinderCpp.pdb
+C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\Debug\PathFinderCpp.exe
+C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\Debug\PathFinderCpp.pdb

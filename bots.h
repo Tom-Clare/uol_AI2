@@ -20,6 +20,17 @@ class cBotSimple : public cBotBase
 
 class cDijkstra
 {
+	public:
+		bool closed[GRIDWIDTH][GRIDHEIGHT]; //is location closed?
+		float cost[GRIDWIDTH][GRIDHEIGHT]; //cost of moving to that location
+		int linkX[GRIDWIDTH][GRIDHEIGHT]; // Holds X value of which neighbor the fastest route came through
+		int linkY[GRIDWIDTH][GRIDHEIGHT]; // Holds Y value of which neighbor the fastest route came through
+		bool inPath[GRIDWIDTH][GRIDHEIGHT]; // if location is in final path
 
+		bool completed;
+
+		cDijkstra() { completed = false; }
+
+		virtual void Build(cBotBase& bot);
 };
 
