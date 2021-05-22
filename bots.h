@@ -32,5 +32,6 @@ class cDijkstra
 		cDijkstra() { completed = false; }
 
 		virtual void Build(cBotBase& bot);
+		virtual void CalculateNeighbours(int x, int y);
 };
 
