@@ -27,6 +27,8 @@ class cDijkstra
 		int linkY[GRIDWIDTH][GRIDHEIGHT]; // Holds Y value of which neighbor the fastest route came through
 		bool inPath[GRIDWIDTH][GRIDHEIGHT]; // if location is in final path
 
+		float costDefault = 1000000.0f;
+
 		bool completed;
 
 		cDijkstra() { completed = false; }
@@ -34,4 +36,6 @@ class cDijkstra
 		virtual void Build(cBotBase& bot);
 		virtual void CalculateNeighbours(int x, int y);
 };
+
+extern cDijkstra gDijkstra;
 
