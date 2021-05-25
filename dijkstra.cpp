@@ -106,3 +106,85 @@ void cDijkstra::CalculateNeighbours(int x, int y) {
 }
 
 cDijkstra gDijkstra;
+
+void cAStar::Build(cBotBase& bot) {
+
+	// set all nodes to open
+	for (bool status : closed)
+		status = false;
+
+	// set all costs to a very high number
+	for (int w = 0; w < GRIDWIDTH; w++) {
+		for (int h = 0; h < GRIDHEIGHT; h++) {
+			cost[w][h] = costDefault;
+		}
+	}
+
+	// linkX and linkY aren't important, so just set to -1 for now
+	for (int* coordX : linkX)
+		*coordX = -1;
+	for (int* coordY : linkY)
+		*coordY = -1;
+
+	// also, we do not yet know the path, so init all values to false
+	for (bool* val : inPath)
+		*val = false;
+
+	// Begin th esearch!!
+
+	// set cost of bot's current position to zero
+	cost[bot.PositionX()][bot.PositionY()] = 0;
+
+	while (!closed[gTarget.PositionX()][gTarget.PositionY()]) {
+
+		float min = costDefault; // init min element value
+		int minX = 0; // init min values X position
+		int minY = 0; // init min values Y position
+
+
+		for (int x = 0; x < GRIDWIDTH; x++) {
+			for (int y = 0; y < GRIDHEIGHT; y++) {
+
+				float heuristic = fabs(gTarget.PositionX() - x) + fabs(gTarget.PositionY() - y);
+				float costOfNode = cost[x][y] + heuristic;
+
+				if (costOfNode < min && // less than current min
+					!closed[x][y] && // not closed
+					gLevel.isValid(x, y)) { // not blocked
+
+					min = costOfNode; // update min value
+					minX = x;
+					minY = y;
+				}
+			}
+		}
+
+		closed[minX][minY] = true; // close position with lowest cost
+
+		this->CalculateNeighbours(minX, minY);
+
+
+
+	}
+
+	bool done = false; //set to true when we are back at the bot position
+	int nextClosedX = gTarget.PositionX(); //start of path
+	int nextClosedY = gTarget.PositionY(); //start of path
+
+	while (!done) {
+		//inPath[nextClosedX][nextClosedY] = true;
+		pathPerhaps.push_back(std::make_pair(nextClosedX, nextClosedY));
+		int tmpX = nextClosedX;
+		int tmpY = nextClosedY;
+		nextClosedX = linkX[tmpX][tmpY];
+		nextClosedY = linkY[tmpX][tmpY];
+		if ((nextClosedX == bot.PositionX()) && (nextClosedY ==
+			bot.PositionY())) done = true;
+	}
+
+	pathIndex = sizeof(pathPerhaps) / sizeof(pathPerhaps[0]); // set to last index of node of array
+
+	completed = true;
+}
+
+cAStar gAStar;

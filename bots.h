@@ -7,6 +7,7 @@
 //======================================================================================
 
 #include "botbase.h"
+#include <vector>
 
 class cBotRandom : public cBotBase
 {
@@ -14,6 +15,11 @@ class cBotRandom : public cBotBase
 };
 
 class cBotSimple : public cBotBase
+{
+	virtual void ChooseNextGridPosition();
+};
+
+class cBotAStar : public cBotBase
 {
 	virtual void ChooseNextGridPosition();
 };
@@ -39,3 +45,14 @@ class cDijkstra
 
 extern cDijkstra gDijkstra;
 
+class cAStar : public cDijkstra
+{
+public: 
+	virtual void Build(cBotBase& bot);
+
+	static std::vector< std::pair <int, int> > pathPerhaps;
+	
+	static int pathIndex;
+};
+
+extern cAStar gAStar;

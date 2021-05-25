@@ -128,7 +128,7 @@ int main(int argc, char* argv[])
             {
                 if (!p_down)
                 {
-                    gDijkstra.Build(*pBot);
+                    gAStar.Build(*pBot);
                     p_down = true;
                 }
             }
