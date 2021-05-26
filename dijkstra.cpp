@@ -1,27 +1,11 @@
 #include "bots.h"
 
+std::vector< std::pair <int, int> > cAStar::pathPerhaps = {};
+int cAStar::pathIndex = 0;
+
 void cDijkstra::Build(cBotBase &bot) {
 	
-	// set all nodes to open
-	for (bool status : closed)
-		status = false;
-
-	// set all costs to a very high number
-	for (int w = 0; w < GRIDWIDTH; w++) {
-		for (int h = 0; h < GRIDHEIGHT; h++) {
-			cost[w][h] = 1000000.0f;
-		}
-	}
-
-	// linkX and linkY aren't important, so just set to -1 for now
-	for (int* coordX : linkX)
-		*coordX = -1;
-	for (int* coordY : linkY)
-		*coordY = -1;
-
-	// also, we do not yet know the path, so init all values to false
-	for (bool* val : inPath)
-		*val = false;
+	
 
 	// Begin th esearch!!
 	
@@ -182,9 +166,37 @@ void cAStar::Build(cBotBase& bot) {
 			bot.PositionY())) done = true;
 	}
 
-	pathIndex = sizeof(pathPerhaps) / sizeof(pathPerhaps[0]); // set to last index of node of array
+	pathIndex = pathPerhaps.size() - 1; // set to last index of node of array
 
 	completed = true;
 }
 
 cAStar gAStar;
+
+void cAStar::Initilize() {
+	// set all nodes to open
+	for (bool status : closed)
+		status = false;
+
+	// set all costs to a very high number
+	for (int w = 0; w < GRIDWIDTH; w++) {
+		for (int h = 0; h < GRIDHEIGHT; h++) {
+			cost[w][h] = 1000000.0f;
+		}
+	}
+
+	// linkX and linkY aren't important, so just set to -1 for now
+	for (int* coordX : linkX)
+		*coordX = -1;
+	for (int* coordY : linkY)
+		*coordY = -1;
+
+	// also, we do not yet know the path, so init all values to false
+	for (bool* val : inPath)
+		*val = false;
+
+	cAStar::pathPerhaps = {};
+	cAStar::pathIndex = 0;
+
+	completed = false;
+}

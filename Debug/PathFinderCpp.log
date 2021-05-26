@@ -1,14 +1,4 @@
-﻿  botRandom.cpp
-  botSimple.cpp
-  cBotAStar.cpp
-  dijkstra.cpp
-C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\dijkstra.cpp(85,64): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\dijkstra.cpp(148,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  level.cpp
-  main.cpp
-  Generating Code...
-cBotAStar.obj : error LNK2001: unresolved external symbol "public: static class std::vector<struct std::pair<int,int>,class std::allocator<struct std::pair<int,int> > > cAStar::pathPerhaps" (?pathPerhaps@cAStar@@2V?$vector@U?$pair@HH@std@@V?$allocator@U?$pair@HH@std@@@2@@std@@A)
-dijkstra.obj : error LNK2001: unresolved external symbol "public: static class std::vector<struct std::pair<int,int>,class std::allocator<struct std::pair<int,int> > > cAStar::pathPerhaps" (?pathPerhaps@cAStar@@2V?$vector@U?$pair@HH@std@@V?$allocator@U?$pair@HH@std@@@2@@std@@A)
-cBotAStar.obj : error LNK2001: unresolved external symbol "public: static int cAStar::pathIndex" (?pathIndex@cAStar@@2HA)
-dijkstra.obj : error LNK2001: unresolved external symbol "public: static int cAStar::pathIndex" (?pathIndex@cAStar@@2HA)
-C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\Debug\PathFinderCpp.exe : fatal error LNK1120: 2 unresolved externals
+﻿  dijkstra.cpp
+C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\dijkstra.cpp(69,64): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\dijkstra.cpp(132,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  PathFinderCpp.vcxproj -> C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\Debug\PathFinderCpp.exe

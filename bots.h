@@ -49,6 +49,7 @@ class cAStar : public cDijkstra
 {
 public: 
 	virtual void Build(cBotBase& bot);
+	virtual void Initilize();
 
 	static std::vector< std::pair <int, int> > pathPerhaps;
 	

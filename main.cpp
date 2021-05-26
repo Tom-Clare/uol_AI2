@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
     //======================================================================================
     // Create Bot
     //======================================================================================
-    cBotBase* pBot = new cBotSimple();
+    cBotBase* pBot = new cBotAStar();
     pBot->SetCurrent(10, 20, gLevel);
 
     //======================================================================================
@@ -128,6 +128,7 @@ int main(int argc, char* argv[])
             {
                 if (!p_down)
                 {
+                    gAStar.Initilize();
                     gAStar.Build(*pBot);
                     p_down = true;
                 }
