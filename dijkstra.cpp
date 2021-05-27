@@ -91,7 +91,7 @@ void cDijkstra::CalculateNeighbours(int x, int y) {
 
 cDijkstra gDijkstra;
 
-void cAStar::Build(cBotBase& bot) {
+void cAStar::Build(cBotBase& bot, int heuristicIndex) {
 
 	// set all nodes to open
 	for (bool status : closed)
@@ -129,7 +129,19 @@ void cAStar::Build(cBotBase& bot) {
 		for (int x = 0; x < GRIDWIDTH; x++) {
 			for (int y = 0; y < GRIDHEIGHT; y++) {
 
-				float heuristic = fabs(gTarget.PositionX() - x) + fabs(gTarget.PositionY() - y);
+				float heuristic = 0;
+				int dx = fabs(gTarget.PositionX() - x);
+				int dy = fabs(gTarget.PositionY() - y);
+				if (heuristicIndex == 1) { // Manhattan method
+					heuristic = dx + dy;
+				}
+				else if (heuristicIndex == 2) { // Diagonal method
+					heuristic = (dx + dy) - 0.6*std::min(dx, dy);
+				}
+				else if (heuristicIndex == 3) { // Euclidean method
+					heuristic = sqrt((dx * dx) + (dy * dy));
+				}
+				
 				float costOfNode = cost[x][y] + heuristic;
 
 				if (costOfNode < min && // less than current min

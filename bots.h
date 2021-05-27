@@ -48,7 +48,7 @@ extern cDijkstra gDijkstra;
 class cAStar : public cDijkstra
 {
 public: 
-	virtual void Build(cBotBase& bot);
+	virtual void Build(cBotBase& bot, int heuristicIndex);
 	virtual void Initilize();
 
 	static std::vector< std::pair <int, int> > pathPerhaps;

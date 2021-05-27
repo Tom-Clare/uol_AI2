@@ -1,4 +1,2 @@
-﻿  dijkstra.cpp
-C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\dijkstra.cpp(69,64): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\dijkstra.cpp(132,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  main.cpp
   PathFinderCpp.vcxproj -> C:\Users\GLaDOS MkII\Documents\uni\projects\second_year\AI\uol_AI2\Debug\PathFinderCpp.exe

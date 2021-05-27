@@ -129,7 +129,7 @@ int main(int argc, char* argv[])
                 if (!p_down)
                 {
                     gAStar.Initilize();
-                    gAStar.Build(*pBot);
+                    gAStar.Build(*pBot, 1); // 1 = manhattan, 2 = diagonal, 3 = euclidean
                     p_down = true;
                 }
             }
